@@ -37,7 +37,6 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS accounting (
                     answer TEXT NOT NULL
                 )''')
 
-# Sample data for each category
 
 history_data = [
     ("Who was the first President of the United States?", "George Washington"),
@@ -104,14 +103,12 @@ accounting_data = [
     ("What term refers to the systematic process of communicating financial information to internal and external users?", "Reporting")
 ]
 
-# Insert sample data into the tables
 cursor.executemany("INSERT INTO history (question, answer) VALUES (?, ?)", history_data)
 cursor.executemany("INSERT INTO management (question, answer) VALUES (?, ?)", management_data)
 cursor.executemany("INSERT INTO database (question, answer) VALUES (?, ?)", database_data)
 cursor.executemany("INSERT INTO python (question, answer) VALUES (?, ?)", python_data)
 cursor.executemany("INSERT INTO accounting (question, answer) VALUES (?, ?)", accounting_data)
 
-# Commit the changes and close the connection
 conn.commit()
 conn.close()
 
